@@ -1,0 +1,25 @@
+{
+    "$schema": "vendor/infection/infection/resources/schema.json",
+    "source": {
+        "directories": [
+            "src"
+        ]
+    },
+    "logs": {
+        "text": "infection.log"
+    },
+    "mutators": {
+        "@default": true,
+        "PublicVisibility": false,
+        "FalseValue": {
+            "ignore": [
+                // Ignored to maintain identical implementation with Laravel's native SoftDeletes trait.
+                // Since 'restored' is a post-event, the halt argument has no practical impact on
+                // the restoration logic itself, making this a harmless mutant.
+                "Tomoki\\SoftDeletesValue\\SoftDeletes::restore"
+            ]
+        }
+    },
+    "testFramework": "phpunit",
+    "bootstrap": "./vendor/autoload.php"
+}

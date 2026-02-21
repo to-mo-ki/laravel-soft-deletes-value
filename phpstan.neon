@@ -1,0 +1,17 @@
+includes:
+    - vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    level: 9
+    paths:
+        - src
+        - tests
+
+    ignoreErrors:
+        # These methods are provided by the SoftDeletes trait, which is dynamically composed into Models.
+        # Since PHPStan doesn't always track trait composition on the base Model class,
+        # we explicitly allow these architectural patterns.
+        - '#Call to an undefined method (TModel of )?Illuminate\\Database\\Eloquent\\Model::(getQualifiedDeletedAtColumn|getDeletedAtColumn|getUndeletedValue|treatNullAsDeleted)\(\)#'
+
+        # The withTrashed() method is a dynamic macro added by the SoftDeletingScope.
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder.*::withTrashed\(\)#'

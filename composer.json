@@ -1,0 +1,54 @@
+{
+    "name": "to-mo-ki/laravel-soft-deletes-value",
+    "description": "Allow customizing the \"undeleted\" value for Laravel Soft Deletes.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "to-mo-ki"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/database": "^10.0|^11.0|^12.0",
+        "illuminate/support": "^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "infection/infection": "^0.27",
+        "laravel/pint": "^1.13",
+        "nunomaduro/larastan": "^2.0",
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "phpunit/phpunit": "^10.1|^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tomoki\\SoftDeletesValue\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tomoki\\SoftDeletesValue\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": []
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "coverage-text": "vendor/bin/phpunit --coverage-text",
+        "coverage-html": "vendor/bin/phpunit --coverage-html coverage-report",
+        "pint": "vendor/bin/pint",
+        "phpstan": "vendor/bin/phpstan analyze src --level 9",
+        "infection": "vendor/bin/infection --threads=max --min-msi=100 --min-covered-msi=100"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

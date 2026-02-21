@@ -1,0 +1,6 @@
+/vendor/
+/.phpunit.cache/
+/composer.lock
+coverage-report/
+/.serena/
+infection.log
